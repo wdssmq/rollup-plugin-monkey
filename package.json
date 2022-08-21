@@ -1,0 +1,41 @@
+{
+  "name": "rollup-plugin-monkey",
+  "version": "1.0.0",
+  "description": "",
+  "author": "wdssmq <wdssmq@qq.com>",
+  "license": "MIT",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "type": "module",
+  "keywords": [
+    "rollup",
+    "rollup-plugin",
+    "development",
+    "server"
+  ],
+  "imports": {
+    "#monkey": "./dist/index.mjs",
+    "#pinoPretty": "./src/pino-pretty.js"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "test:spa": "npm run build && cd test/spa && rollup -w -c",
+    "lint": "eslint --ignore-path .gitignore --ext .js ."
+  },
+  "dependencies": {
+    "@fastify/websocket": "^7.0.0",
+    "@fastify/static": "^6.5.0",
+    "@fastify/cors": "^8.1.0",
+    "utf-8-validate": "^5.0.9",
+    "livereload-js": "^3.4.1",
+    "pino-pretty": "^9.0.1",
+    "bufferutil": "^4.0.6",
+    "femtocolor": "^2.0.3",
+    "chokidar": "^3.5.3",
+    "fastify": "^4.5.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.22.0",
+    "rollup": "^2.78.1"
+  }
+}
