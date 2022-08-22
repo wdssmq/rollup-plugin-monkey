@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "build": "NODE_ENV=prod rollup -c",
+    "dev": "NODE_ENV=dev rollup -c -w",
+    "clear": "rimraf dev"
+  },
+  "dependencies": {
+    "@rollup/plugin-replace": "^4.0.0",
+    "rollup-plugin-monkey": "github:wdssmq/rollup-plugin-monkey#v1"
+  }
+}
