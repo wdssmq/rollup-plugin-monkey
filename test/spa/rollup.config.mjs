@@ -8,7 +8,7 @@ export default {
     banner: '/* eslint-disable */'
   },
   plugins: [
-    monkey('.')
+    monkey()
   ],
   watch: {
     clearScreen: false
