@@ -19,6 +19,7 @@
   },
   "scripts": {
     "build": "rollup -c",
+    "prepare": "npm run build",
     "test:spa": "npm run build && cd test/spa && rollup -w -c",
     "test:gm": "npm run build && cd test/gm && NODE_ENV=dev rollup -w -c",
     "lint": "eslint --ignore-path .gitignore --ext .js ."
