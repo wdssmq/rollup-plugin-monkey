@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "scripts": {
     "build": "NODE_ENV=prod rollup -c",
     "dev": "NODE_ENV=dev rollup -c -w",
