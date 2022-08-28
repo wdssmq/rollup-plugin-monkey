@@ -30,7 +30,6 @@
     "@fastify/websocket": "^7.0.0",
     "bufferutil": "^4.0.6",
     "chokidar": "^3.5.3",
-    "cross-env": "^7.0.3",
     "fastify": "^4.5.2",
     "fastify-plugin": "^4.2.1",
     "femtocolor": "^2.0.3",
@@ -40,6 +39,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-replace": "^4.0.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.22.0",
     "rollup": "^2.78.1"
   }
