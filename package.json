@@ -21,7 +21,7 @@
     "build": "rollup -c",
     "prepare": "npm run build",
     "test:spa": "npm run build && cd test/spa && rollup -w -c",
-    "test:gm": "npm run build && cd test/gm && NODE_ENV=dev rollup -w -c",
+    "test:gm": "npm run build && cd test/gm && cross-env NODE_ENV=dev rollup -w -c",
     "lint": "eslint --ignore-path .gitignore --ext .js ."
   },
   "dependencies": {
@@ -30,6 +30,7 @@
     "@fastify/websocket": "^7.0.0",
     "bufferutil": "^4.0.6",
     "chokidar": "^3.5.3",
+    "cross-env": "^7.0.3",
     "fastify": "^4.5.2",
     "fastify-plugin": "^4.2.1",
     "femtocolor": "^2.0.3",
