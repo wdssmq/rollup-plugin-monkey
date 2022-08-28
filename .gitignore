@@ -1,3 +1,4 @@
 dist/
 dev/
 node_modules/
+pnpm-lock.yaml

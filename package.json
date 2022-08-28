@@ -25,16 +25,17 @@
     "lint": "eslint --ignore-path .gitignore --ext .js ."
   },
   "dependencies": {
-    "@fastify/websocket": "^7.0.0",
-    "@fastify/static": "^6.5.0",
     "@fastify/cors": "^8.1.0",
-    "utf-8-validate": "^5.0.9",
+    "@fastify/static": "^6.5.0",
+    "@fastify/websocket": "^7.0.0",
+    "bufferutil": "^4.0.6",
+    "chokidar": "^3.5.3",
+    "fastify": "^4.5.2",
+    "fastify-plugin": "^4.2.1",
+    "femtocolor": "^2.0.3",
     "livereload-js": "^3.4.1",
     "pino-pretty": "^9.0.1",
-    "bufferutil": "^4.0.6",
-    "femtocolor": "^2.0.3",
-    "chokidar": "^3.5.3",
-    "fastify": "^4.5.2"
+    "utf-8-validate": "^5.0.9"
   },
   "devDependencies": {
     "@rollup/plugin-replace": "^4.0.0",
