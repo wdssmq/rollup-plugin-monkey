@@ -1,12 +1,13 @@
 {
   "type": "module",
   "scripts": {
-    "build": "NODE_ENV=prod rollup -c",
-    "dev": "NODE_ENV=dev rollup -c -w",
+    "build": "cross-env NODE_ENV=prod rollup -c",
+    "dev": "cross-env NODE_ENV=dev rollup -c -w",
     "clear": "rm -rf dev"
   },
   "dependencies": {
     "@rollup/plugin-replace": "^4.0.0",
+    "cross-env": "^7.0.3",
     "rollup": "^2.78.1",
     "rollup-plugin-monkey": "github:wdssmq/rollup-plugin-monkey#v1"
   }
