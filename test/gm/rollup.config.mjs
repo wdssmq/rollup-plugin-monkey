@@ -1,7 +1,11 @@
 import { gm_name, gm_banner } from './src/__info.js'
 import replace from '@rollup/plugin-replace'
-import monkey from '#monkey'
 
+// for test
+// import monkey from '#monkey'
+import monkey from "../../dist/index.mjs"
+
+// for prod
 // import monkey from 'rollup-plugin-monkey'
 
 /*
