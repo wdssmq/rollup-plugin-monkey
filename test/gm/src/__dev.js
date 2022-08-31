@@ -4,42 +4,42 @@
   entryList = [],
   apiList = []
 }) => {
-  const _unsafeWindow = window.unsafeWindow
+  const _unsafeWindow = window.unsafeWindow;
   if (_unsafeWindow) {
-    Reflect.set(_unsafeWindow, "unsafeWindow", _unsafeWindow)
-    const mountedApiList = []
-    const unMountedApiList = []
+    Reflect.set(_unsafeWindow, "unsafeWindow", _unsafeWindow);
+    const mountedApiList = [];
+    const unMountedApiList = [];
     apiList.forEach((s) => {
-      const fn = Reflect.get(window, s)
+      const fn = Reflect.get(window, s);
       if (fn) {
-        Reflect.set(_unsafeWindow, s, fn)
-        mountedApiList.push(s)
+        Reflect.set(_unsafeWindow, s, fn);
+        mountedApiList.push(s);
       } else {
-        unMountedApiList.push(s)
+        unMountedApiList.push(s);
       }
-    })
+    });
     console.log(
       `[rollup-gm-loader] mount ${mountedApiList.length}/${apiList.length} GM_api to unsafeWindow`
-    )
+    );
     Reflect.set(_unsafeWindow, "__GM_api", {
       mountedApiList,
       unMountedApiList
-    })
+    });
   }
   const createScript = (src) => {
-    const el = document.createElement("script")
-    el.src = src
-    el.type = "module"
-    el.dataset.source = "rollup-gm-loader"
-    return el
-  }
-  const { head } = document
+    const el = document.createElement("script");
+    el.src = src;
+    el.type = "module";
+    el.dataset.source = "rollup-gm-loader";
+    return el;
+  };
+  const { head } = document;
   entryList.reverse().forEach((s) => {
-    head.insertBefore(createScript(s), head.firstChild)
-  })
+    head.insertBefore(createScript(s), head.firstChild);
+  });
   console.log(
     `[rollup-gm-loader] mount ${entryList.length} module to document.head`
-  )
+  );
 })({
   "entryList": [
     "placeholder.livereload.js",
@@ -70,4 +70,4 @@
     "GM_unregisterMenuCommand",
     "GM_xmlhttpRequest"
   ]
-})
+});

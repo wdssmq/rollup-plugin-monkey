@@ -22,8 +22,8 @@ const gm_banner = `
 
 /* eslint-disable */
 /* jshint esversion: 6 */
-`
+`;
 
-const gm_name = "gm"
+const gm_name = "gm";
 
-export { gm_banner, gm_name }
+export { gm_banner, gm_name };
