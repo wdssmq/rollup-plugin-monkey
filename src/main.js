@@ -14,7 +14,7 @@ export default (opts = {}) => {
         const config = Object.assign({}, defConfig, opts)
         if (!this.meta.watchMode) {
           if (!config.force) return
-          else this.warn(`Starting dev-monkey even though we're not in watch mode`)
+          else this.warn('Starting dev-monkey even though we\'re not in watch mode')
         }
         const web = new fastify()
         await web.init(config)

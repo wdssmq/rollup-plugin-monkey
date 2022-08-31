@@ -20,7 +20,7 @@ export default fp(async (server) => {
     connection.socket.on('message', message => {
       const request = JSON.parse(message.toString())
       server.log.info(`「livereload」 ${request.command}`)
-      if (request.command === "hello") {
+      if (request.command === 'hello') {
         const data = JSON.stringify({
           command: 'hello',
           protocols: ['http://livereload.com/protocols/official-7', 'http://livereload.com/protocols/official-8', 'http://livereload.com/protocols/official-9', 'http://livereload.com/protocols/2.x-origin-version-negotiation', 'http://livereload.com/protocols/2.x-remote-control'],

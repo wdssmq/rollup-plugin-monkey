@@ -6,7 +6,7 @@ const serverDefaults = Object.freeze({
 const pluginServer = Object.freeze({
   logger: {
     transport: {
-      target: "#pinoPretty",
+      target: '#pinoPretty',
       // target: "pino-pretty",
       options: {
         colorize: true,
@@ -17,12 +17,12 @@ const pluginServer = Object.freeze({
 
 const defConfig = {
   cors: {
-    origin: "*",
-    methods: ["GET"]
+    origin: '*',
+    methods: ['GET']
   },
   static: {
     basePath: undefined,
-    dirs: [""],
+    dirs: [''],
   },
   listen: {
     host: 'localhost',
