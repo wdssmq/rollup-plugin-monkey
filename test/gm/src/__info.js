@@ -17,6 +17,7 @@ const gm_banner = `
 // @noframes
 // @run-at       document-end
 // @match        http://127.0.0.1:3000/
+// @match        http://localhost:3000/
 // @grant        none
 // ==/UserScript==
 
