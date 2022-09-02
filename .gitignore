@@ -2,5 +2,6 @@
 dist/
 dev/
 node_modules/
+script_def/
 pnpm-lock.yaml
 *.user.js
