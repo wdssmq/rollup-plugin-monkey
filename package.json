@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-monkey",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "rollup plugin for GM_Script",
   "author": "wdssmq <wdssmq@qq.com>",
   "license": "MIT",
@@ -52,6 +52,7 @@
     "@rollup/plugin-replace": "^4.0.0",
     "cross-env": "^7.0.3",
     "eslint": "^8.22.0",
-    "rollup": "^2.78.1"
+    "rollup": "^2.78.1",
+    "rollup-plugin-copy": "^3.4.0"
   }
 }
