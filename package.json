@@ -21,6 +21,7 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "prepare": "npm run build",
+    "prepublish": "npm run build",
     "test:spa": "npm run build && cd test/spa && rollup -w -c",
     "test:gm": "npm run build && cd test/gm && cross-env NODE_ENV=dev rollup -w -c",
     "lint": "eslint --ignore-path .gitignore --ext .js ."
