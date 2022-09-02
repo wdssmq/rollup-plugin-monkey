@@ -47,8 +47,12 @@ const devConfig = {
       listen: gobConfig.listen,
       onListen(web) {
         web.server.log.info({
-          "msg": "{{header}} install script {{url}}",
+          "msg": "{{header}} install script for dev {{url}}",
           "url": `${gobConfig.url}/dev/${gobConfig.gm_file}`
+        });
+        web.server.log.info({
+          "msg": "{{header}} install script for prod {{url}}",
+          "url": `${gobConfig.url}/${gobConfig.gm_file}`
         });
       }
     }),
