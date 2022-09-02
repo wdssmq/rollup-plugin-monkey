@@ -16,17 +16,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          registry-url: https://registry.npmjs.org
-      - name: Install & Build & Publish
-        run: |
-          npm install
-          npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # Build Release
       - name: Copy
         run: |
           rm -rf script_def
@@ -54,3 +44,15 @@ jobs:
           name: ${{ env.PUB_NAME }} Build ${{ env.TAG }}
           body: ${{ env.PUB_NAME }} Build ${{ env.TAG }} Release.
           files: ${{ env.PUB_NAME }}.tar.gz
+      # Build Publish
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: https://registry.npmjs.org
+      - name: Install & Build & Publish
+        run: |
+          npm install
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
