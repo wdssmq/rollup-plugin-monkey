@@ -75,9 +75,11 @@ const loaderConfig = {
   ]
 };
 
-const config = process.env.NODE_ENV === "dev" ? devConfig : prodConfig;
+const rollupConfig = [prodConfig];
 
-export default [
-  loaderConfig,
-  config
-];
+if (process.env.NODE_ENV === "dev") {
+  rollupConfig.push(loaderConfig);
+  rollupConfig.push(devConfig);
+}
+
+export default rollupConfig;
