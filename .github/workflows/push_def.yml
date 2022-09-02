@@ -1,0 +1,57 @@
+name: Publish & Release
+on:
+  push:
+    branches:
+      - main
+jobs:
+  def:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16]
+    env:
+      TZ: Asia/Shanghai
+      PUB_NAME: script_def
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: https://registry.npmjs.org
+      - name: Install & Build & Publish
+        run: |
+          npm install
+          npm build
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Copy
+        run: |
+          rm -rf script_def
+          cp -r test/gm script_def
+          cp test/.eslintrc.yaml script_def/
+          rm -rf
+          sed -i "s/..\/..\/dist\/index.mjs/rollup-plugin-monkey/" script_def/rollup.config.mjs
+          sed -i "s/for test/for prod/" script_def/rollup.config.mjs
+      - name: Gen ZIP
+        run: |
+          tar -czvf script_def.tar.gz script_def
+      - name: Get Tag
+        id: get_tag
+        env:
+          REF: ${{ github.ref }}
+        run: |
+          TAG=${REF/refs\/tags\/v}
+          echo "::set-output name=tag::${TAG}"
+      - name: Release
+        id: release
+        uses: softprops/action-gh-release@v1
+        env:
+          TAG: ${{steps.get_tag.outputs.tag}}
+        with:
+          name: ${{ env.PUB_NAME }} Build ${{ env.TAG }}
+          body: ${{ env.PUB_NAME }} Build ${{ env.TAG }} Release.
+          files: ${{ env.PUB_NAME }}.tar.gz
