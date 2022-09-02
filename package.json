@@ -1,15 +1,24 @@
 {
   "name": "rollup-plugin-monkey",
   "version": "1.0.0",
-  "description": "",
+  "description": "rollup plugin for GM_Script",
   "author": "wdssmq <wdssmq@qq.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wdssmq/rollup-plugin-monkey"
+  },
+  "bugs": {
+    "url": "https://github.com/wdssmq/rollup-plugin-monkey/issues"
+  },
+  "homepage": "https://github.com/wdssmq/rollup-plugin-monkey#readme",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "type": "module",
   "keywords": [
     "rollup",
     "rollup-plugin",
+    "GM_Script",
     "development",
     "server"
   ],
