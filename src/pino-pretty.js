@@ -11,8 +11,7 @@ export default opts => pinoPretty({
     // console.log(log, messageKey)
     if (log.msg) {
       if (log.msg.includes('Server listening')) {
-        const startup = log.msg.replace('Server listening', header).split('at')
-        log.msg = startup[0] + 'listening on' + _url(startup[1])
+        log.msg = `${header} -----------------------`
       }
       log.msg = log.msg.replace('{{url}}', _url(log.url))
       log.msg = log.msg.replace('{{header}}', header)
