@@ -19,8 +19,11 @@
     "rollup",
     "rollup-plugin",
     "GM_Script",
-    "development",
-    "server"
+    "Tampermonkey",
+    "Violentmonkey",
+    "Greasemonkey",
+    "UserScripts",
+    "UserScript"
   ],
   "imports": {
     "#monkey": "./dist/index.mjs",
