@@ -63,6 +63,8 @@ mv script_def ${PROJECT_SCRIPT}
 cd ${PROJECT_SCRIPT}
 cnpm i
 
+# 修改 src/__info.js 内常量定义
+
 # 运行
 npm run dev
 
