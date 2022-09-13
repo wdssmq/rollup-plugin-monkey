@@ -15,8 +15,8 @@ export default function (config, act = () => { }) {
   }
   return chokidar.watch(paths, {
     ignoreInitial: true,
+    usePolling: false,
     ignored: config.exclusions,
-    usePolling: config.usePolling
   }).on('all', (event, path) => {
     if (event === 'add' || event === 'change' || event === 'unlink') {
       act(event, path)
