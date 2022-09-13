@@ -52,12 +52,16 @@ npm: [https://www.npmjs.com/package/rollup-plugin-monkey](https://www.npmjs.com/
 - 本人习惯原因，正式文件会输出在项目根目录，由`rollup.config.mjs`内定义：
   - 可自行修改：``gm_file: `${gm_name}.user.js`,`` → ``gm_file: `dist/${gm_name}.user.js`,``
 
-[点击这里下载]: https://github.com/wdssmq/rollup-plugin-monkey/releases/download/v1.0.2/script_def.tar.gz
+[点击这里下载]: https://github.com/wdssmq/rollup-plugin-monkey/releases/latest/download/script_def.tar.gz
+
+<!-- [点击这里下载]: https://github.com/wdssmq/rollup-plugin-monkey/releases/download/v1.0.2/script_def.tar.gz -->
+
+<!-- [链接到发行版]: https://docs.github.com/cn/repositories/releasing-projects-on-github/linking-to-releases -->
 
 ```bash
 PROJECT_SCRIPT=script_demo
 # 下载初始模板
-wget https://github.com/wdssmq/rollup-plugin-monkey/releases/download/v1.0.2/script_def.tar.gz
+wget https://github.com/wdssmq/rollup-plugin-monkey/releases/latest/download/script_def.tar.gz
 tar -xzvf script_def.tar.gz
 mv script_def ${PROJECT_SCRIPT}
 cd ${PROJECT_SCRIPT}
