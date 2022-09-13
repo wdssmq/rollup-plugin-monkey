@@ -1,7 +1,7 @@
 import chokidar from 'chokidar'
 import { resolve } from 'path'
 
-const defaultExclusions = [/\.git\//, /\.svn\//, /\.hg\//]
+const defaultExclusions = [/\.git\//, /\.svn\//, /\.hg\//, /node_modules\//]
 
 export default function (config, act = () => { }) {
   config.exclusions = config.exclusions || []
