@@ -36,7 +36,11 @@
     "prepublish": "npm run build",
     "test:spa": "npm run build && cd test/spa && rollup -w -c",
     "test:gm": "npm run build && cd test/gm && cross-env NODE_ENV=dev rollup -w -c",
-    "lint": "eslint --ignore-path .gitignore --ext .js ."
+    "lint": "eslint --ignore-path .gitignore --ext .js .",
+    "patch": "npm version patch -m 'up. pkg version patch'",
+    "ncu:gm": "cd test/gm && ncu -u && git diff-index --quiet HEAD || (git add . && git commit -m 'up. pkg dependencies of test/gm' --no-verify)",
+    "git:tag": "git tag -a v${npm_package_version} -m 'tag. v${npm_package_version}'",
+    "git:pub": "npm run patch && npm run ncu:gm && npm run git:tag"
   },
   "dependencies": {
     "@fastify/cors": "^8.1.0",
@@ -55,6 +59,7 @@
     "@rollup/plugin-replace": "^4.0.0",
     "cross-env": "^7.0.3",
     "eslint": "^8.22.0",
+    "npm-check-updates": "^16.3.2",
     "rollup": "^2.78.1",
     "rollup-plugin-copy": "^3.4.0"
   }
