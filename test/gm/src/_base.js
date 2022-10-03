@@ -38,7 +38,7 @@ function fnAfter($ne, e) {
   $e.parentNode.insertBefore($ne, $e.nextSibling);
 }
 
-// 指定元素内查看子元素
+// 指定元素内查找子元素
 function fnFindDom(el, selector) {
   return el.querySelectorAll(selector);
 }
