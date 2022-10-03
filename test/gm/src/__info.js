@@ -2,7 +2,7 @@ const gm_banner = `
 // ==UserScript==
 // @name         New Userscript
 // @namespace    https://www.wdssmq.com/
-// @version      0.1
+// @version      placeholder.pkg.version
 // @author       沉冰浮水
 // @description  try to take over the world!
 // @license      MIT
