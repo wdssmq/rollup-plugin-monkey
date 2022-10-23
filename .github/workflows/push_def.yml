@@ -17,17 +17,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       # Build Release
-      - name: Copy
+      - name: Copy && Gen ZIP
+        env:
+          PUB_NAME: ${{ env.PUB_NAME }}
         run: |
-          rm -rf script_def
-          cp -r test/gm script_def
-          cp test/.eslintrc.yaml script_def/
+          rm -rf ${PUB_NAME}
+          cp -r test/gm ${PUB_NAME}
+          cp test/.eslintrc.yaml ${PUB_NAME}/
           rm -rf
-          sed -i "s/..\/..\/dist\/index.mjs/rollup-plugin-monkey/" script_def/rollup.config.mjs
-          sed -i "s/for test/for prod/" script_def/rollup.config.mjs
-      - name: Gen ZIP
-        run: |
-          tar -czvf script_def.tar.gz script_def
+          sed -i "s/..\/..\/dist\/index.mjs/rollup-plugin-monkey/" ${PUB_NAME}/rollup.config.mjs
+          sed -i "s/for test/for prod/" ${PUB_NAME}/rollup.config.mjs
+          tar -czvf ${PUB_NAME}.tar.gz ${PUB_NAME}
       - name: Get Tag
         id: get_tag
         env:
