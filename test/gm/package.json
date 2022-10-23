@@ -4,6 +4,7 @@
   "scripts": {
     "build": "cross-env NODE_ENV=prod rollup -c",
     "dev": "cross-env NODE_ENV=dev rollup -c -w",
+    "lint": "eslint --ext .js,.mjs .",
     "clear": "rm -rf dev"
   },
   "dependencies": {
