@@ -39,7 +39,7 @@ jobs:
         id: release
         uses: softprops/action-gh-release@v1
         env:
-          TAG: ${{steps.get_tag.outputs.tag}}
+          TAG: ${{ steps.get_tag.outputs.tag }}
         with:
           name: ${{ env.PUB_NAME }} Build ${{ env.TAG }}
           body: ${{ env.PUB_NAME }} Build ${{ env.TAG }} Release.
