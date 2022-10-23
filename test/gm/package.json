@@ -7,9 +7,9 @@
     "clear": "rm -rf dev"
   },
   "dependencies": {
-    "@rollup/plugin-replace": "^4.0.0",
+    "@rollup/plugin-replace": "^5.0.1",
     "cross-env": "^7.0.3",
-    "rollup": "^2.79.1",
+    "rollup": "^3.2.3",
     "rollup-plugin-monkey": "^1.0.3"
   }
 }
