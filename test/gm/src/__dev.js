@@ -2,7 +2,7 @@
 
 ; (({
   entryList = [],
-  apiList = []
+  apiList = [],
 }) => {
   const _unsafeWindow = window.unsafeWindow;
   if (_unsafeWindow) {
@@ -19,11 +19,11 @@
       }
     });
     console.log(
-      `[rollup-gm-loader] mount ${mountedApiList.length}/${apiList.length} GM_api to unsafeWindow`
+      `[rollup-gm-loader] mount ${mountedApiList.length}/${apiList.length} GM_api to unsafeWindow`,
     );
     Reflect.set(_unsafeWindow, "__GM_api", {
       mountedApiList,
-      unMountedApiList
+      unMountedApiList,
     });
   }
   const createScript = (src) => {
@@ -38,12 +38,12 @@
     head.insertBefore(createScript(s), head.firstChild);
   });
   console.log(
-    `[rollup-gm-loader] mount ${entryList.length} module to document.head`
+    `[rollup-gm-loader] mount ${entryList.length} module to document.head`,
   );
 })({
   "entryList": [
     "placeholder.livereload.js",
-    "placeholder.user.js"
+    "placeholder.user.js",
   ],
   "apiList": [
     "GM",
@@ -68,6 +68,6 @@
     "GM_setClipboard",
     "GM_setValue",
     "GM_unregisterMenuCommand",
-    "GM_xmlhttpRequest"
-  ]
+    "GM_xmlhttpRequest",
+  ],
 });

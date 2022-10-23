@@ -3,7 +3,7 @@ import { createApp, h } from "https://unpkg.com/vue@3.1.5/dist/vue.runtime.esm-b
 const route = window.location.pathname;
 
 const App = {
-  setup: () => () => h("h1", `Hello world. This path is ${route} 20220821224831`)
+  setup: () => () => h("h1", `Hello world. This path is ${route} 20220821224831`),
 };
 
 class VueApp extends HTMLElement {

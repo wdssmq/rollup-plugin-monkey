@@ -1,16 +1,16 @@
-import monkey from '#monkey'
+import monkey from "#monkey";
 
 export default {
-  input: './app.js',
+  input: "./app.js",
   output: {
-    file: './dist/main.js',
-    format: 'esm',
-    banner: '/* eslint-disable */'
+    file: "./dist/main.js",
+    format: "esm",
+    banner: "/* eslint-disable */",
   },
   plugins: [
-    monkey()
+    monkey(),
   ],
   watch: {
-    clearScreen: false
-  }
-}
+    clearScreen: false,
+  },
+};
