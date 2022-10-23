@@ -13,3 +13,6 @@ rules:
   quotes:
     - error
     - double
+  comma-dangle:
+    - warn
+    - always-multiline
