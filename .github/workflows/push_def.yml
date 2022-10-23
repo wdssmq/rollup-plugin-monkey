@@ -14,6 +14,7 @@ jobs:
       PUB_NAME: script_def
     if: startsWith(github.ref, 'refs/tags/v')
     steps:
+      # Checkout
       - name: Checkout
         uses: actions/checkout@v2
       # Build Release
@@ -28,6 +29,7 @@ jobs:
           sed -i "s/..\/..\/dist\/index.mjs/rollup-plugin-monkey/" ${PUB_NAME}/rollup.config.mjs
           sed -i "s/for test/for prod/" ${PUB_NAME}/rollup.config.mjs
           tar -czvf ${PUB_NAME}.tar.gz ${PUB_NAME}
+      # Get Tag For Release Name
       - name: Get Tag
         id: get_tag
         env:
@@ -35,7 +37,8 @@ jobs:
         run: |
           TAG=${REF/refs\/tags\/v}
           echo "::set-output name=tag::${TAG}"
-      - name: Release
+      # Publish Release
+      - name: Publish Release
         id: release
         uses: softprops/action-gh-release@v1
         env:
@@ -44,12 +47,13 @@ jobs:
           name: ${{ env.PUB_NAME }} Build ${{ env.TAG }}
           body: ${{ env.PUB_NAME }} Build ${{ env.TAG }} Release.
           files: ${{ env.PUB_NAME }}.tar.gz
-      # Build Publish
+      # Setup Node
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           registry-url: https://registry.npmjs.org
+      # NPM Publish
       - name: Install & Build & Publish
         run: |
           npm install
