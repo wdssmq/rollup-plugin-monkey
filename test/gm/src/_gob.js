@@ -47,7 +47,7 @@ const gob = {
     if (this._bolLoaded) {
       return;
     }
-    const lsData = lsObj.getItem(this._lsKey, this._data);
+    const lsData = lsObj.getItem(this._lsKey, this.data);
     _log("[log]gob.load()", lsData);
     for (const key in lsData) {
       if (Object.hasOwnProperty.call(lsData, key)) {
