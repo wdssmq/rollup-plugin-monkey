@@ -31,3 +31,9 @@ export default (opts = {}) => {
     }
   }
 }
+
+import monkeyPath from './base'
+
+export {
+  monkeyPath
+}

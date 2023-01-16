@@ -2,12 +2,13 @@ import { gm_name, gm_banner } from "./src/__info.js";
 import replace from "@rollup/plugin-replace";
 
 // for test
-import monkey from "../../dist/index.mjs";
+import monkey, { monkeyPath } from "../../dist/index.mjs";
 
 const gobConfig = {
   gm_file: `${gm_name}.user.js`,
   gm_banner: gm_banner.trim() + "\n",
   gm_version: process.env.npm_package_version,
+  gm_dev: monkeyPath.devJS,
   listen: {
     host: "localhost",
     port: "3000",
@@ -54,7 +55,7 @@ const devConfig = {
 };
 
 const loaderConfig = {
-  input: "src/__dev.js",
+  input: gobConfig.gm_dev,
   output: {
     file: `dev/${gobConfig.gm_file}`,
     format: "iife",

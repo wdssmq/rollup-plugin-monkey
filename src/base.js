@@ -9,6 +9,7 @@ const require = createRequire(import.meta.url)
 const monkeyPath = {
   base: path.resolve(__dirname, '../'),
   liveJS: require.resolve('livereload-js'),
+  devJS: require.resolve('#dev'),
 }
 
 // console.log(Object.assign({}, { __dirname, __filename }, monkeyPath))
