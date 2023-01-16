@@ -27,7 +27,8 @@
   ],
   "imports": {
     "#monkey": "./dist/index.mjs",
-    "#pinoPretty": "./dist/_pino-pretty.js"
+    "#pinoPretty": "./dist/_pino-pretty.js",
+    "#dev": "./dist/_dev.js"
   },
   "scripts": {
     "build": "rollup -c",

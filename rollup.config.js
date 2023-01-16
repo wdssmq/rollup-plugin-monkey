@@ -15,5 +15,12 @@ export default [
       { file: pkg.imports['#pinoPretty'], format: 'esm', banner: '/* eslint-disable */' }
     ],
     external: ['path', ...Object.keys(pkg.dependencies)]
+  },
+  {
+    input: 'src/__dev.js',
+    output: [
+      { file: pkg.imports['#dev'], format: 'esm', banner: '/* eslint-disable */' }
+    ],
+    external: ['path', ...Object.keys(pkg.dependencies)]
   }
 ]
