@@ -34,6 +34,21 @@ export default (opts = {}) => {
 
 import monkeyPath from './base'
 
+const monkeyRequire = (arrOpts) => {
+  const entryList = []
+  const apiList = []
+  arrOpts.forEach((s) => {
+    entryList.push(s.url)
+    apiList.push(s.func)
+  })
+  return {
+    gm_entry: JSON.stringify(entryList),
+    gm_api: JSON.stringify(apiList),
+    gm_require: arrOpts.map((s) => `// @require      ${s.url}`).join('\n'),
+  }
+}
+
 export {
-  monkeyPath
+  monkeyPath,
+  monkeyRequire
 }

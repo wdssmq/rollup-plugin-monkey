@@ -18,6 +18,8 @@ gob.save();
 _log("[TEST]gob.data", gob.data);
 
 const $p = $n("p");
-$p.innerHTML += `<br>${gob.strTest}`;
+$p.innerHTML += `<br>${gob.strTest} - by innerHTML`;
+
+$("p").append(`<br>${gob.intTest} - by jQuery`);
 
 // Your code here...

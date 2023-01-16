@@ -27,4 +27,11 @@ const gm_banner = `
 
 const gm_name = "gm";
 
-export { gm_banner, gm_name };
+const gm_require = [
+  {
+    "url": "https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.min.js",
+    "func": "$",
+  },
+];
+
+export { gm_banner, gm_name, gm_require };
