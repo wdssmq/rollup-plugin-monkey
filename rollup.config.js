@@ -10,7 +10,7 @@ export default [
     external: ['path', ...Object.keys(pkg.dependencies)]
   },
   {
-    input: 'src/pino-pretty.js',
+    input: 'src/__pino-pretty.js',
     output: [
       { file: pkg.imports['#pinoPretty'], format: 'esm', banner: '/* eslint-disable */' }
     ],
