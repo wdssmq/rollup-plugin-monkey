@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-monkey",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "rollup plugin for GM_Script",
   "author": "wdssmq <wdssmq@qq.com>",
   "license": "MIT",
