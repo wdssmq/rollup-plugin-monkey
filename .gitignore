@@ -6,3 +6,4 @@ script_def/
 pnpm-lock.yaml
 npminstall-debug.log
 *.user.js
+*.tar.gz

@@ -2,4 +2,5 @@ test/
 src/
 .*
 *.tar.gz
+npminstall-debug.log
 rollup.config.js
