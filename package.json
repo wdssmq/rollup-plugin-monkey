@@ -12,8 +12,11 @@
     "url": "https://github.com/wdssmq/rollup-plugin-monkey/issues"
   },
   "homepage": "https://github.com/wdssmq/rollup-plugin-monkey#readme",
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
+  "main": "dist/index.mjs",
+  "exports": {
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.cjs"
+  },
   "type": "module",
   "keywords": [
     "rollup",
