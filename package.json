@@ -43,7 +43,7 @@
     "lint": "eslint --ignore-path .gitignore --ext .js,.mjs .",
     "patch": "npm version patch -m 'up. pkg version patch'",
     "ncu:gm": "cd test/gm && ncu -u && git diff-index --quiet HEAD || (git add . && git commit -m 'up. pkg dependencies of test/gm' --no-verify)",
-    "git:tag": "git tag -a v${npm_package_version} -m \"tag. v${npm_package_version}\"",
+    "git:tag": "git tag -a v${npm_package_version} -m \"tag. v${npm_package_version}\" && git tag -n",
     "git:pub": "npm run patch && npm run ncu:gm && npm run git:tag",
     "git:push": "git push --follow-tags"
   },
