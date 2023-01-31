@@ -13,8 +13,8 @@ export default [
   {
     input: 'src/main.js',
     output: [
-      { file: pkg.main, format: 'cjs', banner, exports: 'named' },
-      { file: pkg.module, format: 'esm', banner }
+      { file: pkg.exports.require, format: 'cjs', banner, exports: 'named' },
+      { file: pkg.exports.import, format: 'esm', banner }
     ],
     external
   },
