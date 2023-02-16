@@ -69,5 +69,5 @@
     'GM_setValue',
     'GM_unregisterMenuCommand',
     'GM_xmlhttpRequest',
-  ],
+  ].concat(placeholder.gm_api),
 })
