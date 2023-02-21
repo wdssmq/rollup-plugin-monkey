@@ -48,24 +48,23 @@
     "git:push": "git push --follow-tags"
   },
   "dependencies": {
-    "@fastify/cors": "^8.1.0",
-    "@fastify/static": "^6.5.0",
-    "@fastify/websocket": "^7.0.0",
-    "bufferutil": "^4.0.6",
+    "@fastify/cors": "^8.2.0",
+    "@fastify/static": "^6.9.0",
+    "@fastify/websocket": "^7.1.2",
+    "bufferutil": "^4.0.7",
     "chokidar": "^3.5.3",
-    "fastify": "^4.5.2",
-    "fastify-plugin": "^4.2.1",
+    "fastify": "^4.13.0",
+    "fastify-plugin": "^4.5.0",
     "femtocolor": "^2.0.3",
     "livereload-js": "^3.4.1",
-    "pino-pretty": "^9.0.1",
-    "utf-8-validate": "^5.0.9"
+    "pino-pretty": "^9.3.0",
+    "utf-8-validate": "^6.0.2"
   },
   "devDependencies": {
-    "@rollup/plugin-replace": "^4.0.0",
+    "@rollup/plugin-replace": "^5.0.2",
     "cross-env": "^7.0.3",
-    "eslint": "^8.22.0",
-    "npm-check-updates": "^16.3.2",
-    "rollup": "^2.78.1",
-    "rollup-plugin-copy": "^3.4.0"
+    "eslint": "^8.34.0",
+    "npm-check-updates": "^16.7.5",
+    "rollup": "^2.79.1"
   }
 }
