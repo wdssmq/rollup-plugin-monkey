@@ -33,8 +33,8 @@ npm: [https://www.npmjs.com/package/rollup-plugin-monkey](https://www.npmjs.com/
 
 ## 已知问题
 
-- pnpm 下的正确姿势需要进一步探究；
-- `@require` 引入的函数库无法在开发模式下访问；
+- ~~pnpm 下的正确姿势需要进一步探究；~~
+- ~~`@require` 引入的函数库无法在开发模式下访问；~~
 
 ## 安装使用
 
@@ -42,19 +42,18 @@ npm: [https://www.npmjs.com/package/rollup-plugin-monkey](https://www.npmjs.com/
 - 修改文件夹名为你的项目名；
 - 进入项目文件夹后执行 `cpnm i` 安装依赖；「pnpm 目前还有点问题？」
 - 「userscript header」由`src/__info.js`定义，以字符串形式；「这是和其他同类工具最大的不同」
-  - 还有一个`gm_name`常量建议修改为和文件夹名一样；
+  - `gm_name`将决定构建后的文件名；
+  - `gm_require`则用于引入外部函数库；
 - 可用命令：
   - `npm run dev`
   - `npm run build`
   - `npm run clear`
-- 预置了`src/main.js`和`src/_base.js`用于实际「GM_脚本」功能编写，可自行修改或增加文件；
-- 你可以维护一份自己的「初始模板」，主要是`src/__info.js`和`src/_base.js`；
+- 预置了`src/main.js`和`src/_base.js`等文件用于实际「GM_脚本」功能编写，可自行修改或增加；
+- 你可以根据`script_def`示例维护一份自己的「初始模板」，主要是`src/__info.js`和`src/_base.js`；
 - 本人习惯原因，正式文件会输出在项目根目录，由`rollup.config.mjs`内定义：
   - 可自行修改：``gm_file: `${gm_name}.user.js`,`` → ``gm_file: `dist/${gm_name}.user.js`,``
 
 [点击这里下载]: https://github.com/wdssmq/rollup-plugin-monkey/releases/latest/download/script_def.tar.gz
-
-<!-- [点击这里下载]: https://github.com/wdssmq/rollup-plugin-monkey/releases/download/v1.0.2/script_def.tar.gz -->
 
 <!-- [链接到发行版]: https://docs.github.com/cn/repositories/releasing-projects-on-github/linking-to-releases -->
 
@@ -63,7 +62,9 @@ PROJECT_SCRIPT=script_demo
 # 下载初始模板
 wget https://github.com/wdssmq/rollup-plugin-monkey/releases/latest/download/script_def.tar.gz
 tar -xzvf script_def.tar.gz
+rm -f script_def.tar.gz
 mv script_def ${PROJECT_SCRIPT}
+sed -i "s/\"script_def\"/\"${PROJECT_SCRIPT}\"/" ${PROJECT_SCRIPT}/src/__info.js
 cd ${PROJECT_SCRIPT}
 cnpm i
 
