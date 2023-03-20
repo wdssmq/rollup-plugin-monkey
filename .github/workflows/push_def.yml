@@ -29,6 +29,7 @@ jobs:
           rm -rf ${PUB_NAME}/index.html
           sed -i "s/..\/..\/dist\/index.mjs/rollup-plugin-monkey/" ${PUB_NAME}/rollup.config.mjs
           sed -i "s/for test/for prod/" ${PUB_NAME}/rollup.config.mjs
+          sed -i "s/\"gm\"/\"${PUB_NAME}\"/" ${PUB_NAME}/src/__info.js
           tar -czvf ${PUB_NAME}.tar.gz ${PUB_NAME}
       # Get Tag For Release
       - name: Get Tag
