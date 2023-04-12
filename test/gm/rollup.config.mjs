@@ -57,6 +57,10 @@ const devConfig = {
           "url": `${gobConfig.url}/${gobConfig.gm_file}`,
         });
       },
+      watch: {
+        exclusions: [],
+        dirs: "",
+      },
     }),
   ],
 };
