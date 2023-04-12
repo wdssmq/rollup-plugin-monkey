@@ -30,3 +30,6 @@ rules:
   quotes:
     - error
     - single
+  comma-dangle:
+    - warn
+    - always-multiline
