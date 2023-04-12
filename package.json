@@ -44,7 +44,6 @@
     "ncu:gm": "cd test/gm && ncu -u && git diff-index --quiet HEAD || (git add . && git commit -m 'up. pkg.deps of test/gm' --no-verify)",
     "up:minor": "npm version minor -m 'up. pkg version minor' && git tag -n",
     "up:patch": "npm version patch -m 'up. pkg version patch' && git tag -n",
-    "git:tag": "git tag -a v${npm_package_version} -m \"tag. v${npm_package_version}\" && git tag -n",
     "git:pub": "npm run up:patch && npm run ncu:gm",
     "git:push": "git push --follow-tags"
   },
