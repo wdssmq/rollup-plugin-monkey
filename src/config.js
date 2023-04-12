@@ -1,6 +1,6 @@
 const serverDefaults = Object.freeze({
   ignoreTrailingSlash: true,
-  disableRequestLogging: true
+  disableRequestLogging: true,
 })
 
 const pluginServer = Object.freeze({
@@ -11,14 +11,14 @@ const pluginServer = Object.freeze({
       options: {
         colorize: true,
       },
-    }
-  }
+    },
+  },
 })
 
 const defConfig = {
   cors: {
     origin: '*',
-    methods: ['GET']
+    methods: ['GET'],
   },
   static: {
     basePath: undefined,
@@ -30,15 +30,16 @@ const defConfig = {
   },
   server: {
     ...pluginServer,
-    ...serverDefaults
+    ...serverDefaults,
   },
   watch: {
-
+    exclusions: [],
+    dirs: '',
   },
   livereload: true,
   force: false,
   extend: undefined,
-  onListen: undefined
+  onListen: undefined,
 }
 
 export default defConfig
