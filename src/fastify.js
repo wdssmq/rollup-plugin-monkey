@@ -28,11 +28,12 @@ class Server {
       if (err) {
         this.server.log.error(err)
         // process.exit(1)
+      } else {
+        if (this.config.onListen) {
+          this.config.onListen(this)
+        }
       }
     })
-    if (this.config.onListen) {
-      this.config.onListen(this)
-    }
   }
   livereload() {
     this.server.get('/livereload.js', function (req, reply) {

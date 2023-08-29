@@ -10,9 +10,6 @@ export default opts => pinoPretty({
     // if (log.reqId) return ""
     // console.log(log, messageKey)
     if (log.msg) {
-      if (log.msg.includes('Server listening')) {
-        log.msg = `${header} -----------------------`
-      }
       log.msg = log.msg.replace('{{url}}', _url(log.url))
       log.msg = log.msg.replace('{{header}}', header)
       // 删除字段
