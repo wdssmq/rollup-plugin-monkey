@@ -3,6 +3,8 @@ import fastify from './fastify'
 import watcher from './watcher'
 import { onRefresh } from './fastify-ws'
 
+import monkeyPath, { indexOfAll } from './base.js'
+
 export default (opts = {}) => {
   let booted = false
   return {
@@ -21,8 +23,12 @@ export default (opts = {}) => {
         web.start()
         if (config.livereload) {
           watcher(config.watch, (event, path) => {
+            // const isInfo = path.indexOf('__info') > -1
+            const isDevMain = indexOfAll(path, ["dev", "main.js"])
             web.server.log.info(`${event} ${path}`)
-            onRefresh(web.server, path)
+            if (isDevMain) {
+              onRefresh(web.server, path)
+            }
           })
         }
       } catch (err) {
@@ -31,8 +37,6 @@ export default (opts = {}) => {
     }
   }
 }
-
-import monkeyPath from './base'
 
 const monkeyRequire = (arrOpts) => {
   const entryList = []
