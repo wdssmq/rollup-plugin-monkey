@@ -1,6 +1,8 @@
-test/
-src/
 .*
 *.tar.gz
+doc/
 npminstall-debug.log
+pnpm-*.yaml
 rollup.config.js
+src/
+test/
