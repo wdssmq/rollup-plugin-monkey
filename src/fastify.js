@@ -40,7 +40,11 @@ class Server {
       // console.log(monkeyPath.liveJS)
       // reply.type('text/javascript').sendFile('livereload.js', monkeyPath.livePath)
       fs.readFile(monkeyPath.liveJS, (err, fileBuffer) => {
-        reply.type('text/javascript').send(err || fileBuffer)
+        if (err) {
+          reply.code(500).type('text/plain').send('Failed to load livereload.js')
+          return
+        }
+        reply.type('text/javascript').send(fileBuffer)
       })
     })
   }

@@ -5,6 +5,24 @@ import { onRefresh } from './fastify-ws'
 
 import monkeyPath, { indexOfAll } from './base.js'
 
+const isPlainObject = (value) => {
+  return Object.prototype.toString.call(value) === '[object Object]'
+}
+
+const mergeConfig = (base, extra) => {
+  const merged = { ...base }
+  Object.keys(extra || {}).forEach((key) => {
+    const baseValue = base?.[key]
+    const extraValue = extra[key]
+    if (isPlainObject(baseValue) && isPlainObject(extraValue)) {
+      merged[key] = mergeConfig(baseValue, extraValue)
+      return
+    }
+    merged[key] = extraValue
+  })
+  return merged
+}
+
 export default (opts = {}) => {
   let booted = false
   return {
@@ -13,7 +31,7 @@ export default (opts = {}) => {
       if (booted) return
       booted = true
       try {
-        const config = Object.assign({}, defConfig, opts)
+        const config = mergeConfig(defConfig, opts)
         if (!this.meta.watchMode) {
           if (!config.force) return
           else this.warn('Starting dev-monkey even though we\'re not in watch mode')
