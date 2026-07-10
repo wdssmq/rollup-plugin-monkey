@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16]
+        node-version: [24]
     env:
       TZ: Asia/Shanghai
       PUB_NAME: script_def
@@ -17,7 +17,7 @@ jobs:
     steps:
       # Checkout
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
       # Build Release
       - name: Copy && Gen ZIP
         env:
@@ -42,23 +42,29 @@ jobs:
       # Publish Release
       - name: Publish Release
         id: release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v3
         env:
           TAG: ${{ steps.get_tag.outputs.tag }} # 获取上一步截取到的版本号，既 1.0.0
         with:
           name: ${{ env.PUB_NAME }} Build ${{ env.TAG }}
           body: ${{ env.PUB_NAME }} Build ${{ env.TAG }} Release.
           files: ${{ env.PUB_NAME }}.tar.gz
+      # Setup pnpm + Node
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
       # Setup Node
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
           registry-url: https://registry.npmjs.org
-      # NPM Publish
+          cache: pnpm
+      # pnpm Publish
       - name: Install & Build & Publish
         run: |
-          npm install
-          npm publish
+          pnpm install --frozen-lockfile
+          pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
