@@ -1,12 +1,12 @@
+import { blue, bold, green } from 'femtocolor'
 import pinoPretty from 'pino-pretty'
-import { bold, green, blue } from 'femtocolor'
 
 const header = blue('⚡︎dev-server')
-const _url = (url) => bold(green(url))
+const _url = url => bold(green(url))
 
 export default opts => pinoPretty({
   ...opts,
-  messageFormat: (log, messageKey) => {
+  messageFormat: (log, _messageKey) => {
     // if (log.reqId) return ""
     // console.log(log, messageKey)
     if (log.msg) {
@@ -17,5 +17,5 @@ export default opts => pinoPretty({
       delete log.reqId
       return log.msg
     }
-  }
+  },
 })

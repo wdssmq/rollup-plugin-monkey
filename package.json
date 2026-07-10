@@ -1,9 +1,12 @@
 {
   "name": "rollup-plugin-monkey",
+  "type": "module",
   "version": "1.1.0",
+  "packageManager": "pnpm@10.34.1",
   "description": "rollup plugin for GM_Script",
   "author": "wdssmq <wdssmq@qq.com>",
   "license": "MIT",
+  "homepage": "https://github.com/wdssmq/rollup-plugin-monkey#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/wdssmq/rollup-plugin-monkey"
@@ -11,14 +14,6 @@
   "bugs": {
     "url": "https://github.com/wdssmq/rollup-plugin-monkey/issues"
   },
-  "homepage": "https://github.com/wdssmq/rollup-plugin-monkey#readme",
-  "packageManager": "pnpm@10.34.1",
-  "main": "dist/index.mjs",
-  "exports": {
-    "import": "./dist/index.mjs",
-    "require": "./dist/index.cjs"
-  },
-  "type": "module",
   "keywords": [
     "rollup",
     "rollup-plugin",
@@ -34,6 +29,11 @@
     "#pinoPretty": "./dist/_pino-pretty.js",
     "#dev": "./dist/_dev.js"
   },
+  "exports": {
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.cjs"
+  },
+  "main": "dist/index.mjs",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",

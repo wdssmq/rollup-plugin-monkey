@@ -1,6 +1,6 @@
-import path from 'path'
-import { fileURLToPath } from 'url'
 import { createRequire } from 'node:module'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -17,10 +17,11 @@ const monkeyPath = {
 export default monkeyPath
 
 // 一个函数，判断输入字符串同时含有数组中的所有元素
-export const indexOfAll = (str, arr) => {
+export function indexOfAll(str, arr) {
   let bolRlt = true
   arr.forEach((s) => {
-    if (str.indexOf(s) === -1) bolRlt = false
+    if (!str.includes(s))
+      bolRlt = false
   })
   return bolRlt
 }

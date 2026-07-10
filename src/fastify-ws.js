@@ -1,13 +1,13 @@
-import fp from 'fastify-plugin'
 import wsPlugin from '@fastify/websocket'
+import fp from 'fastify-plugin'
 
-const onRefresh = (server, filepath) => {
+function onRefresh(server, filepath) {
   const { websocketServer } = server
   const data = JSON.stringify({
     command: 'reload',
     path: filepath,
   })
-  websocketServer.clients.forEach(socket => {
+  websocketServer.clients.forEach((socket) => {
     if (socket.readyState === 1) {
       socket.send(data)
     }
@@ -17,9 +17,9 @@ export { onRefresh }
 
 export default fp(async (server) => {
   await server.register(wsPlugin)
-  server.get('/livereload', { websocket: true }, (connection, req) => {
+  server.get('/livereload', { websocket: true }, (connection, _req) => {
     server.log.info('「livereload」 connection')
-    connection.socket.on('message', message => {
+    connection.socket.on('message', (message) => {
       try {
         const request = JSON.parse(message.toString())
         server.log.info(`「livereload」 ${request.command}`)
@@ -37,4 +37,3 @@ export default fp(async (server) => {
     })
   })
 })
-

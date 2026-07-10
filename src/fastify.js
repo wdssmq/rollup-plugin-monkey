@@ -1,11 +1,11 @@
-import fastify from 'fastify'
+import fs from 'node:fs'
 import fastifyCors from '@fastify/cors'
-import fastifyStatic from './fastify-static'
-import fastifyWS from './fastify-ws'
+import fastify from 'fastify'
+import monkeyPath from './base'
 import defConfig from './config'
 
-import monkeyPath from './base'
-import fs from 'fs'
+import fastifyStatic from './fastify-static'
+import fastifyWS from './fastify-ws'
 
 class Server {
   async init(config = defConfig) {
@@ -20,11 +20,12 @@ class Server {
     await this.server.ready()
     return this
   }
+
   start() {
     this.server.listen({
       host: this.config.listen.host,
       port: this.config.listen.port,
-    }, (err, address) => {
+    }, (err, _address) => {
       if (err) {
         this.server.log.error(err)
         // process.exit(1)
@@ -35,8 +36,9 @@ class Server {
       }
     })
   }
+
   livereload() {
-    this.server.get('/livereload.js', function (req, reply) {
+    this.server.get('/livereload.js', (req, reply) => {
       // console.log(monkeyPath.liveJS)
       // reply.type('text/javascript').sendFile('livereload.js', monkeyPath.livePath)
       fs.readFile(monkeyPath.liveJS, (err, fileBuffer) => {

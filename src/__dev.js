@@ -41,11 +41,11 @@
     `[rollup-gm-loader] mount ${entryList.length} module to document.head`,
   )
 })({
-  'entryList': [
+  entryList: [
     'placeholder.livereload.js',
     'placeholder.user.js',
   ],
-  'apiList': [
+  apiList: [
     'GM',
     'GM_addElement',
     'GM_addStyle',

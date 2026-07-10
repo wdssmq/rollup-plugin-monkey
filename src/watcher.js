@@ -1,5 +1,6 @@
+import { resolve } from 'node:path'
+import process from 'node:process'
 import chokidar from 'chokidar'
-import { resolve } from 'path'
 
 const defaultExclusions = [/\.git\//, /\.svn\//, /\.hg\//, /node_modules\//]
 

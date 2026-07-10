@@ -29,8 +29,8 @@ const gm_name = "gm";
 
 const gm_require = [
   {
-    "url": "https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.min.js",
-    "func": "$",
+    url: "https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.min.js",
+    func: "$",
   },
 ];
 

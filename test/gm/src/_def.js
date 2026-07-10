@@ -1,11 +1,11 @@
-import { _log, $n } from "./_base";
+import { $n, _log } from "./_base";
+
+// 一个全局数据存储封装，带 ls 读写
+import { gob } from "./_gob.js";
 
 // Your code here...
 
 _log("[TEST]Hello, world!");
-
-// 一个全局数据存储封装，带 ls 读写
-import { gob } from "./_gob.js";
 _log("[TEST]gob.data", gob.data);
 
 if (gob.intTest <= 3) {

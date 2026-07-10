@@ -1,7 +1,7 @@
 {
+  "type": "module",
   "version": "1.0.0",
   "packageManager": "pnpm@10.34.1",
-  "type": "module",
   "scripts": {
     "build": "rollup -c --environment NODE_ENV:prod",
     "dev": "rollup -c -w --environment NODE_ENV:dev",
