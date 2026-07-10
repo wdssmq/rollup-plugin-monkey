@@ -12,6 +12,7 @@
     "url": "https://github.com/wdssmq/rollup-plugin-monkey/issues"
   },
   "homepage": "https://github.com/wdssmq/rollup-plugin-monkey#readme",
+  "packageManager": "pnpm@10.34.1",
   "main": "dist/index.mjs",
   "exports": {
     "import": "./dist/index.mjs",
