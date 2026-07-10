@@ -1,9 +1,9 @@
 .history/
-dist/
-dev/
-node_modules/
-script_def/
-pnpm-lock.yaml
-npminstall-debug.log
-*.user.js
 *.tar.gz
+*.user.js
+dev/
+dist/
+node_modules/
+npminstall-debug.log
+script_def/
+test/gm/pnpm-lock.yaml
