@@ -1,13 +1,14 @@
+import { builtinModules } from 'node:module'
 import pkg from './package.json'
 
 const banner = '/* eslint-disable */'
-const external = [
-  'fs',
-  'node:module',
-  'path',
-  'url',
+const externalSet = new Set([
   ...Object.keys(pkg.dependencies),
-]
+  ...builtinModules,
+  ...builtinModules.map(name => `node:${name}`),
+])
+
+const external = id => id.startsWith('node:') || externalSet.has(id)
 
 export default [
   {
