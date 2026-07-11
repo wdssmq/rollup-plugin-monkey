@@ -1,0 +1,21 @@
+{
+  "name": "@local/monkey-plop-template",
+  "version": "0.1.0",
+  "packageManager": "pnpm@10.34.1",
+  "description": "Independent plop generator for gm project scaffold",
+  "author": "wdssmq",
+  "license": "MIT",
+  "keywords": [
+    "plop",
+    "userscript",
+    "rollup-plugin-monkey"
+  ],
+  "main": "plopfile.js",
+  "scripts": {
+    "gen:gm": "plop monkey-gm",
+    "gen:help": "plop --help"
+  },
+  "devDependencies": {
+    "plop": "^4.0.5"
+  }
+}
