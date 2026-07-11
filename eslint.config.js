@@ -7,6 +7,8 @@ export default antfu(
     },
     rules: {
       '@/func-call-spacing': 'error',
+      'antfu/no-import-dist': 'off',
+      'no-alert': 'off',
       'no-console': 'off',
       'style/arrow-spacing': 'error',
       'style/brace-style': ['error', '1tbs', { allowSingleLine: true }],
@@ -22,9 +24,6 @@ export default antfu(
   {
     files: ['test/**/*.{js,mjs}'],
     rules: {
-      'antfu/no-import-dist': 'off',
-      'no-alert': 'off',
-      'style/comma-dangle': ['warn', 'always-multiline'],
       'style/quotes': ['error', 'double'],
       'style/semi': ['error', 'always', { omitLastInOneLineBlock: true }],
       // 'style/quote-props': 'off',
