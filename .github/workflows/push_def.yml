@@ -68,6 +68,6 @@ jobs:
       - name: Install & Build & Publish
         run: |
           pnpm install --frozen-lockfile
-          pnpm publish
+          pnpm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
