@@ -62,7 +62,7 @@ cd template
 pnpm install
 
 # 快速生成一个新工程（无交互）
-PROJECT_SCRIPT=script_demo
+PROJECT_SCRIPT=script-demo
 pnpm run gen:gm -- --name ${PROJECT_SCRIPT} --description "try to take over the world!" --match "http://127.0.0.1:3000/,http://localhost:3000/" --namespace "https://www.wdssmq.com/"
 cd output/${PROJECT_SCRIPT}
 pnpm install
