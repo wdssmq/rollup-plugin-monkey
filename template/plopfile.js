@@ -3,9 +3,22 @@ const output = 'output'
 module.exports = function (plop) {
   plop.setHelper('mustacheL', () => '{{')
   plop.setHelper('mustacheR', () => '}}')
+  plop.setHelper('gmMatchLines', (match) => {
+    const values = String(match || '')
+      .split(/[\n,]/)
+      .map(item => item.trim())
+      .filter(Boolean)
+
+    const uniqueValues = [...new Set(values)]
+    if (uniqueValues.length === 0) {
+      return 'http://localhost:3000/*'
+    }
+
+    return uniqueValues.join('\n// @match        ')
+  })
 
   plop.setGenerator('monkey-gm', {
-    description: 'Create a gm project based on test/gm template',
+    description: 'Create a gm project based on gm-base template',
     prompts: [
       {
         type: 'input',
@@ -30,7 +43,7 @@ module.exports = function (plop) {
       {
         type: 'input',
         name: 'match',
-        message: '@match URL pattern',
+        message: '@match URL pattern, comma/newline supported',
         default: 'http://localhost:3000/*',
       },
       {
@@ -66,8 +79,8 @@ module.exports = function (plop) {
       {
         type: 'modify',
         path: `${output}/{{name}}/src/__info.js`,
-        pattern: /__GM_MATCH__/g,
-        template: '{{match}}',
+        pattern: /\/\/ @match\s+__GM_MATCH__/g,
+        template: '// @match        {{{gmMatchLines match}}}',
       },
       {
         type: 'modify',
