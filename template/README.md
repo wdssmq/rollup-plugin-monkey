@@ -48,7 +48,6 @@ pnpm run dev
 ```js
 // @match        http://localhost:3000/*
 // @match        http://127.0.0.1:3000/*
-
 ```
 
 可通过命令行参数直接传入（非交互）：
