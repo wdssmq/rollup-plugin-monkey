@@ -39,39 +39,34 @@ npm: [https://www.npmjs.com/package/rollup-plugin-monkey](https://www.npmjs.com/
 ## 安装使用
 
 - 下载「初始模板」文件并解压；「[点击这里下载]」
-- 修改文件夹名为你的项目名；
-- 进入项目文件夹后执行 `cpnm i` 安装依赖；「pnpm 目前还有点问题？」
-- 「userscript header」由`src/__info.js`定义，以字符串形式；「这是和其他同类工具最大的不同」
-  - `gm_name`将决定构建后的文件名；
-  - `gm_require`则用于引入外部函数库；
-- 可用命令：
-  - `npm run dev`
-  - `npm run build`
-  - `npm run clear`
-- 预置了`src/main.js`和`src/_base.js`等文件用于实际「GM_脚本」功能编写，可自行修改或增加；
-- 你可以根据`script_def`示例维护一份自己的「初始模板」，主要是`src/__info.js`和`src/_base.js`；
-- 本人习惯原因，正式文件会输出在项目根目录，由`rollup.config.mjs`内定义：
-  - 可自行修改：``gm_file: `${gm_name}.user.js`,`` → ``gm_file: `dist/${gm_name}.user.js`,``
+- 解压后进入 `template` 目录，执行 `pnpm install` 安装依赖；
+- 运行 `pnpm run gen:gm` 生成新工程（默认输出到 `template/output/<项目名>`）；
+- 进入生成后的项目目录，执行 `pnpm install` 后即可开始开发；
+- 「userscript header」由 `src/__info.js` 定义，生成时会写入项目名、描述、匹配规则等字段；
+- 常用命令：
+  - `pnpm run dev`
+  - `pnpm run build`
+- 你可以在 `template/gm-base` 维护自己的基础模板，再通过生成器快速产出最终工程项目；
+- 若希望将构建产物输出到 `dist`，可修改 `rollup.config.mjs` 中 `gm_file` 的路径。
 
 [点击这里下载]: https://github.com/wdssmq/rollup-plugin-monkey/releases/latest/download/script_def.tar.gz
 
 <!-- [链接到发行版]: https://docs.github.com/cn/repositories/releasing-projects-on-github/linking-to-releases -->
 
 ```bash
-PROJECT_SCRIPT=script_demo
-# 下载初始模板
+# 下载脚手架模板
 wget https://github.com/wdssmq/rollup-plugin-monkey/releases/latest/download/script_def.tar.gz
 tar -xzvf script_def.tar.gz
 rm -f script_def.tar.gz
-mv script_def ${PROJECT_SCRIPT}
-sed -i "s/\"script_def\"/\"${PROJECT_SCRIPT}\"/" ${PROJECT_SCRIPT}/src/__info.js
-cd ${PROJECT_SCRIPT}
-cnpm i
+cd template
+pnpm install
 
-# 修改 src/__info.js 内常量定义
-
-# 运行
-npm run dev
+# 快速生成一个新工程（无交互）
+PROJECT_SCRIPT=script_demo
+pnpm run gen:gm -- --name ${PROJECT_SCRIPT} --description "try to take over the world!" --match "http://127.0.0.1:3000/,http://localhost:3000/" --namespace "https://www.wdssmq.com/"
+cd output/${PROJECT_SCRIPT}
+pnpm install
+pnpm run dev
 
 ```
 

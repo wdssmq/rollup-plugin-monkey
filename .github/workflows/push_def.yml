@@ -23,13 +23,13 @@ jobs:
         env:
           PUB_NAME: ${{ env.PUB_NAME }}
         run: |
-          rm -rf ${PUB_NAME}
-          cp -r test/gm ${PUB_NAME}
-          rm -rf ${PUB_NAME}/index.html
-          sed -i "s/..\/..\/dist\/index.mjs/rollup-plugin-monkey/" ${PUB_NAME}/rollup.config.mjs
-          sed -i "s/for test/for prod/" ${PUB_NAME}/rollup.config.mjs
-          sed -i "s/\"gm\"/\"${PUB_NAME}\"/" ${PUB_NAME}/src/__info.js
-          tar -czvf ${PUB_NAME}.tar.gz ${PUB_NAME}
+          TMP_DIR=release_template
+          rm -rf ${TMP_DIR}
+          cp -r template ${TMP_DIR}
+          rm -rf ${TMP_DIR}/output
+          find ${TMP_DIR} -type d -name node_modules -prune -exec rm -rf '{}' +
+          tar -czvf ${PUB_NAME}.tar.gz --transform 's,^release_template,template,' ${TMP_DIR}
+          rm -rf ${TMP_DIR}
       # Get Tag For Release
       - name: Get Tag
         id: get_tag
@@ -45,8 +45,14 @@ jobs:
         env:
           TAG: ${{ steps.get_tag.outputs.tag }} # 获取上一步截取到的版本号，既 1.0.0
         with:
-          name: ${{ env.PUB_NAME }} Build ${{ env.TAG }}
-          body: ${{ env.PUB_NAME }} Build ${{ env.TAG }} Release.
+          name: template scaffold build v${{ env.TAG }}
+          body: |
+            template + gm-base scaffold package for rollup-plugin-monkey.
+
+            Quick start:
+            1. tar -xzvf script_def.tar.gz
+            2. cd template && pnpm install
+            3. pnpm run gen:gm
           files: ${{ env.PUB_NAME }}.tar.gz
       # Setup pnpm + Node
       - name: Setup pnpm
