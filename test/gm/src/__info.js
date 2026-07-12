@@ -1,6 +1,6 @@
 const gm_banner = `
 // ==UserScript==
-// @name         New Userscript
+// @name         gm-test
 // @namespace    https://www.wdssmq.com/
 // @version      placeholder.pkg.version
 // @author       沉冰浮水
@@ -24,7 +24,7 @@ const gm_banner = `
 /* eslint-disable */
 `;
 
-const gm_name = "gm";
+const gm_name = "gm-test";
 
 const gm_require = [
   {

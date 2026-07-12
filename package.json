@@ -41,6 +41,7 @@
     "prepublish": "npm run build",
     "test:spa": "npm run build && cd test/spa && rollup -w -c",
     "test:gm": "npm run build && cd test/gm && cross-env NODE_ENV=dev rollup -w -c",
+    "up:test": "node scripts/update-test-gm.mjs && pnpm eslint --fix test",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "ncu:gm": "cd test/gm && ncu -u && git diff-index --quiet HEAD || (git add . && git commit -m 'up. pkg.deps of test/gm' --no-verify)",
