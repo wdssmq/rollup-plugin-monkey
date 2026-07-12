@@ -9,10 +9,13 @@
   "homepage": "https://github.com/wdssmq/rollup-plugin-monkey#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wdssmq/rollup-plugin-monkey"
+    "url": "git+https://github.com/wdssmq/rollup-plugin-monkey.git"
   },
   "bugs": {
     "url": "https://github.com/wdssmq/rollup-plugin-monkey/issues"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   },
   "keywords": [
     "rollup",
@@ -35,7 +38,7 @@
   },
   "main": "dist/index.mjs",
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c && pnpm lint:fix",
     "dev": "rollup -c -w",
     "prepare": "npm run build",
     "prepublish": "npm run build",
