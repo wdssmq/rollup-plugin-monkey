@@ -22,14 +22,13 @@ const gm_banner = `
 // ==/UserScript==
 
 /* eslint-disable */
-/* jshint esversion: 6 */
 `;
 
 const gm_name = "gm";
 
 const gm_require = [
   {
-    url: "https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.min.js",
+    url: "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js",
     func: "$",
   },
 ];
